@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:whatever/application/core/themes/black_hat/black_hat_colors.dart';
+import 'package:whatever/application/core/themes/black_hat/black_hat_settings.dart';
 
 class BlackHatDark {
   static final ThemeData darkTheme = ThemeData(
     appBarTheme: AppBarTheme(
       backgroundColor: BlackHatColors.darkScaffoldBackground,
+      surfaceTintColor: Colors.transparent,
       foregroundColor: BlackHatColors.darkTextColor,
-      elevation: 20,
+      elevation: BlackHatSettings.elevation,
+      shadowColor: BlackHatColors.shadowColor,
     ),
     navigationBarTheme: const NavigationBarThemeData(
       backgroundColor: BlackHatColors.darkScaffoldBackground,
@@ -96,6 +99,7 @@ class BlackHatDark {
     disabledColor: BlackHatColors.darkDisabledColor,
     secondaryHeaderColor: BlackHatColors.darkDisabledColor,
     hintColor: BlackHatColors.darkDisabledColor,
+
     buttonTheme: const ButtonThemeData(
       textTheme: ButtonTextTheme.normal,
       minWidth: 88,

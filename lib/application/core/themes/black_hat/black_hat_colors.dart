@@ -9,6 +9,7 @@ class BlackHatColors {
   static const darkHighlightColor = Colors.greenAccent;
   static const darkDisabledColor = Color.fromARGB(255, 54, 161, 108);
   static const darkError = Colors.redAccent;
+  static const shadowColor = Color.fromARGB(50, 0, 255, 8);
 
   // Light Theme Colors
   static const lightScaffoldBackground = Color.fromARGB(255, 0, 97, 5);

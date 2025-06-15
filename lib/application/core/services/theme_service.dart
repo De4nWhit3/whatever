@@ -14,9 +14,9 @@ import 'package:whatever/application/core/themes/violent/violent_light.dart';
 
 /// A class to manage light/dark mode and apply the various app themes.
 class ThemeService extends ChangeNotifier {
-  bool isDarkModeOn = false;
-  ThemeData activeDarkTheme = GodComplexDark.darkTheme;
-  ThemeData activeLightTheme = GodComplexLight.lightTheme;
+  bool isDarkModeOn = true;
+  ThemeData activeDarkTheme = BlackHatDark.darkTheme;
+  ThemeData activeLightTheme = BlackHatLight.lightTheme;
   final Map<String, String> themes = {
     "Black Hat": "black_hat",
     "Ernaé": "ernae",
@@ -37,10 +37,12 @@ class ThemeService extends ChangeNotifier {
       case "black_hat":
         activeDarkTheme = BlackHatDark.darkTheme;
         activeLightTheme = BlackHatLight.lightTheme;
+        isDarkModeOn = true;
         break;
       case "ernae":
         activeDarkTheme = ErnaeDark.darkTheme;
         activeLightTheme = ErnaeLight.lightTheme;
+        isDarkModeOn = false;
         break;
       case "ghost":
         activeDarkTheme = GhostDark.darkTheme;
@@ -49,6 +51,7 @@ class ThemeService extends ChangeNotifier {
       case "god_complex":
         activeDarkTheme = GodComplexDark.darkTheme;
         activeLightTheme = GodComplexLight.lightTheme;
+        isDarkModeOn = false;
         break;
       case "trillionaire":
         activeDarkTheme = TrillionaireDark.darkTheme;
