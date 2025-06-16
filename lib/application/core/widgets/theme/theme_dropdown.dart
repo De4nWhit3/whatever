@@ -18,35 +18,24 @@ class _ThemeDropdownState extends State<ThemeDropdown> {
     super.initState();
   }
 
-  String? _selectedDisplayName;
-
   @override
   Widget build(BuildContext context) {
-    final Color primaryColor = themeService.isDarkModeOn
-        ? themeService.activeDarkTheme.primaryColor
-        : themeService.activeLightTheme.primaryColor;
     return DropdownButtonHideUnderline(
       child: DropdownButton<String>(
-        iconEnabledColor: primaryColor,
-        hint: Text("Theme", style: TextStyle(color: primaryColor)),
-        alignment: Alignment.center,
-        value: _selectedDisplayName,
-        onChanged: (String? newDisplayName) {
+        value: themeService
+            .themes
+            .keys
+            .first, // or track selected in state for dynamic selection
+        onChanged: (newDisplayName) {
           if (newDisplayName != null) {
             setState(() {
-              _selectedDisplayName = newDisplayName;
+              final themeKey = themeService.themes[newDisplayName]!;
+              themeService.changeTheme(themeName: themeKey);
             });
-            final themeKey = themeService.themes[newDisplayName]!;
-            themeService.changeTheme(themeName: themeKey);
           }
         },
-        items: themeService.themes.keys.map<DropdownMenuItem<String>>((
-          String displayName,
-        ) {
-          return DropdownMenuItem<String>(
-            value: displayName,
-            child: Text(displayName),
-          );
+        items: themeService.themes.keys.map((theme) {
+          return DropdownMenuItem<String>(value: theme, child: Text(theme));
         }).toList(),
       ),
     );

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:whatever/application/core/services/theme_service.dart';
+import 'package:whatever/application/core/widgets/language/language_dropdown.dart';
 import 'package:whatever/application/core/widgets/theme/theme_dropdown.dart';
 
 class LoginPage extends StatefulWidget {
@@ -48,7 +49,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
               ThemeDropdown(),
               Spacer(),
-              ThemeDropdown(),
+              LanguageDropdown(),
             ],
           ),
         ],

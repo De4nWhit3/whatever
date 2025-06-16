@@ -4,6 +4,11 @@ import 'package:whatever/application/core/themes/black_hat/black_hat_settings.da
 
 class BlackHatDark {
   static final ThemeData darkTheme = ThemeData(
+    focusColor: Colors.transparent,
+    highlightColor: Colors.transparent,
+    splashColor: Colors.transparent,
+    // highlightColor: BlackHatColors.darkHighlightColor,
+    // splashColor: BlackHatColors.darkHighlightColor,
     appBarTheme: AppBarTheme(
       backgroundColor: BlackHatColors.darkScaffoldBackground,
       surfaceTintColor: Colors.transparent,
@@ -14,14 +19,17 @@ class BlackHatDark {
     navigationBarTheme: const NavigationBarThemeData(
       backgroundColor: BlackHatColors.darkScaffoldBackground,
     ),
+    menuButtonTheme: MenuButtonThemeData(
+      style: ButtonStyle(
+        foregroundColor: WidgetStatePropertyAll(BlackHatColors.darkTextColor),
+      ),
+    ),
     iconButtonTheme: IconButtonThemeData(
       style: ButtonStyle(
         iconColor: WidgetStateColor.resolveWith(
           (states) => BlackHatColors.darkTextColor,
         ),
-        backgroundColor: WidgetStateColor.resolveWith(
-          (states) => BlackHatColors.darkButtonBackground,
-        ),
+        backgroundColor: WidgetStatePropertyAll(Colors.transparent),
       ),
     ),
     segmentedButtonTheme: SegmentedButtonThemeData(
@@ -73,11 +81,11 @@ class BlackHatDark {
     ),
     textButtonTheme: TextButtonThemeData(
       style: ButtonStyle(
+        overlayColor: WidgetStateColor.resolveWith(
+          (states) => Colors.transparent,
+        ),
         foregroundColor: WidgetStateColor.resolveWith(
           (states) => BlackHatColors.darkTextColor,
-        ),
-        textStyle: WidgetStateTextStyle.resolveWith(
-          (states) => TextStyle(fontWeight: FontWeight.bold),
         ),
       ),
     ),
@@ -93,13 +101,26 @@ class BlackHatDark {
     cardColor: BlackHatColors.darkButtonBackground,
     cardTheme: CardThemeData(color: BlackHatColors.darkButtonBackground),
     dividerColor: BlackHatColors.darkButtonBackground,
-    highlightColor: BlackHatColors.darkHighlightColor,
-    splashColor: BlackHatColors.darkHighlightColor,
     unselectedWidgetColor: BlackHatColors.darkDisabledColor,
     disabledColor: BlackHatColors.darkDisabledColor,
     secondaryHeaderColor: BlackHatColors.darkDisabledColor,
     hintColor: BlackHatColors.darkDisabledColor,
-
+    dropdownMenuTheme: DropdownMenuThemeData(
+      menuStyle: MenuStyle(
+        backgroundColor: WidgetStatePropertyAll(
+          BlackHatColors.darkScaffoldBackground,
+        ),
+      ),
+      textStyle: TextStyle(color: BlackHatColors.darkTextColor),
+      inputDecorationTheme: InputDecorationTheme(
+        border: InputBorder.none,
+        enabledBorder: InputBorder.none,
+        focusedBorder: InputBorder.none,
+        suffixIconColor: BlackHatColors.darkTextColor,
+        iconColor: BlackHatColors.darkTextColor,
+        prefixIconColor: BlackHatColors.darkTextColor,
+      ),
+    ),
     buttonTheme: const ButtonThemeData(
       textTheme: ButtonTextTheme.normal,
       minWidth: 88,
@@ -114,6 +135,7 @@ class BlackHatDark {
         borderRadius: BorderRadius.all(Radius.circular(2.0)),
       ),
       alignedDropdown: false,
+
       buttonColor: BlackHatColors.darkError,
       disabledColor: BlackHatColors.darkDisabledColor,
       highlightColor: BlackHatColors.darkDisabledColor,
@@ -234,7 +256,7 @@ class BlackHatDark {
       activeTrackColor: BlackHatColors.darkTextColor,
       inactiveTrackColor: BlackHatColors.darkDisabledColor,
       thumbColor: BlackHatColors.darkButtonBackground,
-      valueIndicatorTextStyle: TextStyle(color: Color(0xdd000000)),
+      valueIndicatorTextStyle: TextStyle(color: BlackHatColors.darkTextColor),
     ),
     tabBarTheme: const TabBarThemeData(
       indicatorSize: TabBarIndicatorSize.tab,
@@ -332,6 +354,7 @@ class BlackHatDark {
         return BlackHatColors.darkButtonBackground;
       }),
     ),
+
     bottomAppBarTheme: const BottomAppBarTheme(color: Color(0xff424242)),
     colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.lightGreen)
         .copyWith(secondary: BlackHatColors.darkTextColor)
